@@ -5,10 +5,10 @@ server:
 spring:
   application:
     name: rng
-  grpc:
-    server:
-      # Inter-service gRPC port (Scratch Card Engine -> RNG)
-      port: 9090
+#  grpc:
+#    server:
+#      # Inter-service gRPC port (Scratch Card Engine -> RNG)
+#      port: 9090
 
 # Actuator — health + Prometheus metrics (the chi-square failure counter lands here)
 management:
