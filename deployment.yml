@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: rng-app
-          image: andrei195/rng-app:latest   # ← de unde ia imaginea
+          image: andrei195/rng-app:latest   # ← where the image is comming from
           ports:
             - containerPort: 7772           # ← pe ce port ascultă în container
 ---
