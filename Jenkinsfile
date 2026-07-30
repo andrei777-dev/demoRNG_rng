@@ -13,13 +13,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'chmod +x mvnw'
-                sh './mvnw clean package -DskipTests'
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:latest ."
