@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment          # ← "vreau să rulezi un container"
+metadata:
+  name: rng-deployment
+spec:
+  replicas: 1              # ← câte copii (instanțe) vreau
+  selector:
+    matchLabels:
+      app: rng-app
+  template:
+    metadata:
+      labels:
+        app: rng-app
+    spec:
+      containers:
+        - name: rng-app
+          image: andrei195/rng-app:latest   # ← de unde ia imaginea
+          ports:
+            - containerPort: 7772           # ← pe ce port ascultă în container
+---
+apiVersion: v1
+kind: Service              # ← "vreau să expun containerul în afară"
+metadata:
+  name: rng-service
+spec:
+  type: NodePort
+  selector:
+    app: rng-app
+  ports:
+    - port: 7772
+      targetPort: 7772
+      nodePort: 30772       # ← portul prin care îl accesezi tu
