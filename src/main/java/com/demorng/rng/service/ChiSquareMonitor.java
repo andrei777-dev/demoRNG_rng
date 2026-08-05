@@ -16,8 +16,8 @@ import java.util.Map;
  * Keeps one histogram per range (sized to that range) and runs a chi-square test
  * once enough numbers accumulate for a range.
  *
- * Correct semantics (the monolith's alert logic was inverted):
- * chiSquareTest(...) returns true when uniformity is REJECTED => that is a failure.
+ * Note: chiSquareTest(...) returns true when uniformity is REJECTED,
+ * i.e. true means the test FAILED (numbers not uniform).
  */
 @Component
 public class ChiSquareMonitor {
@@ -41,16 +41,20 @@ public class ChiSquareMonitor {
     }
 
     /**
-     * Records one generated value into its range's histogram and runs the test
-     * once that range has accumulated CHECK_INTERVAL draws.
+     * Records one generated value into its range's histogram and runs the chi-square
+     * test once that range has accumulated CHECK_INTERVAL draws.
      * synchronized: the singleton is shared across Tomcat request threads.
+     *
+     * @param value the generated integer to record
+     * @param min inclusive lower bound of the range it came from
+     * @param max inclusive upper bound of the range it came from
      */
     public synchronized void record(int value, int min, int max) {
         int range = max - min + 1;
         String key = min + ":" + max;
 
         long[] observed = histograms.computeIfAbsent(key, k -> new long[range]);
-        observed[value - min]++;
+        observed[value - min]++; // value - min = 0-based index into the histogram
 
         long total = counts.merge(key, 1L, Long::sum);
 
@@ -61,6 +65,7 @@ public class ChiSquareMonitor {
         }
     }
 
+    /** Runs the chi-square test for one range and resets its histogram. */
     private void runTest(String key, long[] observed, long total) {
         // chi-square needs at least 2 categories; a single-value range can't be tested
         if (observed.length < 2) {
