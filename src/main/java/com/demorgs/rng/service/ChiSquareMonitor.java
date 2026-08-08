@@ -1,4 +1,4 @@
-package com.demorng.rng.service;
+package com.demorgs.rng.service;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;

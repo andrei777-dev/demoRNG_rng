@@ -1,4 +1,4 @@
-package com.demorng.rng.service;
+package com.demorgs.rng.service;
 
 import org.springframework.stereotype.Component;
 
