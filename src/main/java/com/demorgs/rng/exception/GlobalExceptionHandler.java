@@ -1,6 +1,6 @@
-package com.demorng.rng.exception;
+package com.demorgs.rng.exception;
 
-import com.demorng.rng.dto.response.ApiError;
+import com.demorgs.rng.dto.response.ApiError;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

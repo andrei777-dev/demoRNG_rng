@@ -1,10 +1,10 @@
-package com.demorng.rng.controller;
+package com.demorgs.rng.controller;
 
-import com.demorng.rng.dto.response.GenerateDoublesResponse;
-import com.demorng.rng.dto.request.GenerateDoublesRequest;
-import com.demorng.rng.dto.request.GenerateIntegersRequest;
-import com.demorng.rng.dto.response.GenerateIntegersResponse;
-import com.demorng.rng.service.RngService;
+import com.demorgs.rng.dto.response.GenerateDoublesResponse;
+import com.demorgs.rng.dto.request.GenerateDoublesRequest;
+import com.demorgs.rng.dto.request.GenerateIntegersRequest;
+import com.demorgs.rng.dto.response.GenerateIntegersResponse;
+import com.demorgs.rng.service.RngService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

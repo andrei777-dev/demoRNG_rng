@@ -1,4 +1,4 @@
-package com.demorng.rng.dto.request;
+package com.demorgs.rng.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

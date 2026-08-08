@@ -1,9 +1,9 @@
-package com.demorng.rng.service;
+package com.demorgs.rng.service;
 
-import com.demorng.rng.dto.request.GenerateDoublesRequest;
-import com.demorng.rng.dto.request.GenerateIntegersRequest;
-import com.demorng.rng.dto.response.GenerateDoublesResponse;
-import com.demorng.rng.dto.response.GenerateIntegersResponse;
+import com.demorgs.rng.dto.request.GenerateDoublesRequest;
+import com.demorgs.rng.dto.request.GenerateIntegersRequest;
+import com.demorgs.rng.dto.response.GenerateDoublesResponse;
+import com.demorgs.rng.dto.response.GenerateIntegersResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

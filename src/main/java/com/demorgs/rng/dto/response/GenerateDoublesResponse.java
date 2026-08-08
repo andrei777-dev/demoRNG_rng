@@ -1,4 +1,4 @@
-package com.demorng.rng.dto.response;
+package com.demorgs.rng.dto.response;
 
 import java.util.List;
 
